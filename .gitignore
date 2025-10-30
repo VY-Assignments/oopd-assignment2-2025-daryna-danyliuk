@@ -1,0 +1,26 @@
+﻿# Visual Studio cache
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vcxproj.user
+
+# Build output
+x64/
+Debug/
+Release/
+*.obj
+*.pdb
+*.exe
+*.ilk
+*.idb
+*.log
+*.tlog
+
+# Temporary
+*.cache/
+*.d6699c9e/
+
+# SFML and other external libraries
+Libraries/
