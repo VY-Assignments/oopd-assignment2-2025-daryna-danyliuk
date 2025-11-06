@@ -16,7 +16,8 @@ public:
 	void pause();
 	void resume();
 	void gameLoop();
-	void update(float deltaTime);
+	void update(GameEngine& engine, float deltaTime);
+	void changeState(std::unique_ptr<GameState> newState);
 private:
 	Board board;
 	ScoreManager scoreManager;
