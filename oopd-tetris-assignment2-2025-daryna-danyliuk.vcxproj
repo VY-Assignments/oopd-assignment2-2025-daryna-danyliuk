@@ -126,6 +126,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Block.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="GameEngine.cpp" />
@@ -133,12 +135,14 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PausedState.cpp" />
     <ClCompile Include="PlayingState.cpp" />
-    <ClCompile Include="SaveManager.cpp" />
+    <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="ScoreManager.cpp" />
     <ClCompile Include="Tetromino.cpp" />
     <ClCompile Include="TetrominoFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="Block.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="GameEngine.h" />
@@ -146,10 +150,11 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="PausedState.h" />
     <ClInclude Include="PlayingState.h" />
-    <ClInclude Include="SaveManager.h" />
+    <ClInclude Include="Renderer.h" />
     <ClInclude Include="ScoreManager.h" />
     <ClInclude Include="Tetromino.h" />
     <ClInclude Include="TetrominoFactory.h" />
+    <ClInclude Include="TetrominoType.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

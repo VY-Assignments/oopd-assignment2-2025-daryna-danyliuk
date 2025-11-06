@@ -1,5 +1,5 @@
 #pragma once
-class TetrominoFactory
-{
-};
+#include "TetrominoType.h"
+
+
 
