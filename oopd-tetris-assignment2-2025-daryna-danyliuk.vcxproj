@@ -144,6 +144,7 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="Block.h" />
     <ClInclude Include="Board.h" />
+    <ClInclude Include="ColourType.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="GameEngine.h" />
     <ClInclude Include="GameOverState.h" />

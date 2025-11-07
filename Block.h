@@ -1,15 +1,16 @@
 #pragma once
 #include <string>
+#include "ColourType.h"
 
 class Block
 {
 private:
 	int xCoord;
 	int yCoord;
-	std::string colour;
+	Colour colour;
 
 public:
-	Block(int x, int y, std::string colour);
+	Block(int x, int y, Colour colour);
 	int getXCoord();
 	void setXCoord(int x);
 	int getYCoord();

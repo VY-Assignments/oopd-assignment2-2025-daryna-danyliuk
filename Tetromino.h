@@ -5,13 +5,14 @@
 
 class Tetromino{
 private:
-	std::string colour;
+	Colour colour;
 	std::array<Block, 4> blocks;
 	std::pair <int, int> pivot;
 	int x, y;
 
 public:
-	std::string getColour();
+	Tetromino(Colour colour, std::array<Block, 4> blocks, std::pair <int, int> pivot, int x, int y);
+	Colour getColour();
 	void move(int dx, int dy);
 	void rotateClockwise();
 	void rotateCounterClockwise();

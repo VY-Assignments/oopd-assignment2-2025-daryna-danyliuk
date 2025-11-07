@@ -98,5 +98,8 @@
     <ClInclude Include="TetrominoType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ColourType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
