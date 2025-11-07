@@ -3,6 +3,7 @@
 #include "GameEngine.h"
 #include "Renderer.h"
 #include "Controller.h"
+#include "InputCommand.h"
 
 
 class Application
@@ -14,6 +15,7 @@ private:
 	Renderer renderer;
 	Controller controller;
 	bool isRunning = true;
+	InputCommand mapKeyToCommand(sf::Keyboard::Key key);
 
 public:
 	Application();

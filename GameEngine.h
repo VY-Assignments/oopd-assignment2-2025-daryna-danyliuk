@@ -3,27 +3,46 @@
 #include "ScoreManager.h"
 #include "SaveManager.h"
 #include "Board.h"
+#include "Tetromino.h"
 #include "TetrominoFactory.h"
 #include "Controller.h"
 #include "GameState.h"
 
-
-
 class GameEngine {
-
 public:
-	void start();
-	void pause();
-	void resume();
-	void update(float deltaTime);
-	void changeState(std::unique_ptr<GameState> newState);
-private:
-	Board board;
-	ScoreManager scoreManager;
-	SaveManager saveManager;
-	TetrominoFactory factory;
-	Controller cmd;
-	std::unique_ptr<GameState> currentState;
-	bool isRunning;
-};
+    GameEngine();
+    void start();
+    void pause();
+    void resume();
+    void update(float deltaTime);
+    void changeState(std::unique_ptr<GameState> newState);
 
+    GameState* getCurrentState() const {
+        return currentState.get();
+    }
+    const Board& getBoard() const {
+        return board; 
+    }
+    const Tetromino& getCurrentTetromino() const { 
+        return currentTetromino; 
+    }
+    Board& getBoardRef() { 
+        return board; 
+    }
+    Tetromino& getCurrentTetrominoRef() { 
+        return currentTetromino; 
+    }
+    void setCurrentTetromino(const Tetromino& t) { currentTetromino = t; }
+    TetrominoFactory& getFactory() {
+        return factory; 
+    }
+
+private:
+    Board board;
+    Tetromino currentTetromino;
+    ScoreManager scoreManager;
+    SaveManager saveManager;
+    TetrominoFactory factory;
+    std::unique_ptr<GameState> currentState;
+    bool isRunning = false;
+};

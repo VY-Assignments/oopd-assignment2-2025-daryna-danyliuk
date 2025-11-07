@@ -6,7 +6,7 @@ Tetromino::Tetromino(Colour colour, std::array<Block, 4> blocks, std::pair<int, 
 {
 }
 
-Colour Tetromino::getColour(){
+Colour Tetromino::getColour() const {
 	return colour;
 }
 void Tetromino::move(int dx, int dy) {
@@ -25,7 +25,7 @@ void Tetromino::rotateClockwise() {
 void Tetromino::rotateCounterClockwise() {
 }
 
-std::array<std::pair<int, int>, 4> Tetromino::getGlobalCoords() {
+std::array<std::pair<int, int>, 4> Tetromino::getGlobalCoords() const {
 	std::array<std::pair<int, int>, 4> coords;
 	for (int i = 0; i < blocks.size(); i++) {
 		coords[i] = {blocks[i].getXCoord(), blocks[i].getYCoord() };

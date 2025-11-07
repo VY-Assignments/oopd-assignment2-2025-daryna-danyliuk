@@ -149,6 +149,7 @@
     <ClInclude Include="GameEngine.h" />
     <ClInclude Include="GameOverState.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="InputCommand.h" />
     <ClInclude Include="PausedState.h" />
     <ClInclude Include="PlayingState.h" />
     <ClInclude Include="Renderer.h" />

@@ -3,7 +3,6 @@
 class GameEngine;
 
 class GameState {
-private:
 public:
 	virtual void update(GameEngine&, float deltaTime) = 0;
 	virtual void handleInput(GameEngine&) = 0;
@@ -11,4 +10,3 @@ public:
 	virtual void onExit() = 0;
 	virtual ~GameState() = default;
 };
-

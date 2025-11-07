@@ -10,10 +10,11 @@ private:
 	Colour colour;
 
 public:
+	Block();
 	Block(int x, int y, Colour colour);
-	int getXCoord();
+	int getXCoord() const;
 	void setXCoord(int x);
-	int getYCoord();
+	int getYCoord() const;
 	void setYCoord(int y);
 
 };
