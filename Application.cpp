@@ -58,9 +58,6 @@ void Application::render() {
     renderer.render(engine);
 }
 
-void Application::update(float deltaTime) {
-}
-
 void Application::close() {
     window.close();
     isRunning = false;

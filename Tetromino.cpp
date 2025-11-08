@@ -1,8 +1,8 @@
 #include "Tetromino.h"
 
 
-Tetromino::Tetromino(Colour colour, std::array<Block, 4> blocks, std::pair<int, int> pivot, int x, int y)
-	: colour(colour), blocks(blocks), pivot(pivot), x(x), y(y)
+Tetromino::Tetromino(Colour colour, std::array<Block, BLOCKS_NUM> blocks, std::pair<int, int> pivot, int x, int y)
+	: colour(colour), localBlocks(blocks), localPivot(pivot), globalX(x), globalY(y)
 {
 }
 
@@ -10,25 +10,21 @@ Colour Tetromino::getColour() const {
 	return colour;
 }
 void Tetromino::move(int dx, int dy) {
-	for (int i = 0 ; i < blocks.size(); i++) {
-		int xCoord = blocks[i].getXCoord();
-		int yCoord = blocks[i].getYCoord();
-		int movedXCoord = xCoord + dx;
-		int movedYCoord = yCoord + dy;
-		blocks[i].setXCoord(movedXCoord);
-		blocks[i].setYCoord(movedYCoord);
-	}
+	globalX += dx;
+	globalY += dy;
 }
 void Tetromino::rotateClockwise() {
 
 }
 void Tetromino::rotateCounterClockwise() {
 }
-
-std::array<std::pair<int, int>, 4> Tetromino::getGlobalCoords() const {
-	std::array<std::pair<int, int>, 4> coords;
-	for (int i = 0; i < blocks.size(); i++) {
-		coords[i] = {blocks[i].getXCoord(), blocks[i].getYCoord() };
+std::array<std::pair<int, int>, BLOCKS_NUM> Tetromino::getGlobalCoords() const {
+	std::array<std::pair<int, int>, BLOCKS_NUM> coords;
+	for (int i = 0; i < BLOCKS_NUM; ++i) {
+		const Block& block = localBlocks[i];
+		int globalBlockX = globalX + (block.getLocalX() - localPivot.first);
+		int globalBlockY = globalY + (block.getLocalY() - localPivot.second);
+		coords[i] = { globalBlockX, globalBlockY };
 	}
 	return coords;
 }

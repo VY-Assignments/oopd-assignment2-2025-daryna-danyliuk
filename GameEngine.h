@@ -5,7 +5,6 @@
 #include "Board.h"
 #include "Tetromino.h"
 #include "TetrominoFactory.h"
-#include "Controller.h"
 #include "GameState.h"
 
 class GameEngine {
@@ -16,6 +15,11 @@ public:
     void resume();
     void update(float deltaTime);
     void changeState(std::unique_ptr<GameState> newState);
+    void moveTetromino(int dx, int dy);
+    void rotateTetrominoCW();
+    void dropTetromino();
+    void lockTetromino();
+    void clearFullLines();
 
     GameState* getCurrentState() const {
         return currentState.get();

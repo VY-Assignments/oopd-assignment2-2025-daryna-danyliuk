@@ -5,17 +5,18 @@
 class Block
 {
 private:
-	int xCoord;
-	int yCoord;
+	int localX;
+	int localY;
 	Colour colour;
 
 public:
 	Block();
 	Block(int x, int y, Colour colour);
-	int getXCoord() const;
-	void setXCoord(int x);
-	int getYCoord() const;
-	void setYCoord(int y);
+	int getLocalX() const;
+	void setLocalX(int x);
+	int getLocalY() const;
+	void setLocalY(int y);
+	Colour getColour();
 
 };
 

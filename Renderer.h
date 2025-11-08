@@ -1,8 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "GameEngine.h"
 #include "PlayingState.h"
 #include "ColourType.h"
+
+class GameEngine;
 
 class Renderer
 {

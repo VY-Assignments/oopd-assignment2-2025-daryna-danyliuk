@@ -1,25 +1,28 @@
 #include "Block.h"
 
-Block::Block() : xCoord(0), yCoord(0), colour(Colour::None)
+Block::Block() : localX(0), localY(0), colour(Colour::None)
 {
 }
 Block::Block(int x, int y, Colour colour)
-    : xCoord(x), yCoord(y), colour(colour) {
+    : localX(x), localY(y), colour(colour) {
 
 }
 
-int Block::getXCoord() const{
-    return xCoord;
+int Block::getLocalX() const{
+    return localX;
 }
 
-void Block::setXCoord(int x) {
-    xCoord = x;
+void Block::setLocalX(int x) {
+    localX = x;
 }
 
-int Block::getYCoord() const{
-    return yCoord;
+int Block::getLocalY() const{
+    return localY;
 }
 
-void Block::setYCoord(int y) {
-    yCoord = y;
+void Block::setLocalY(int y) {
+    localY = y;
+}
+Colour Block::getColour() {
+    return colour;
 }
