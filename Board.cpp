@@ -16,7 +16,13 @@ bool Board::isInside(int x, int y) const
 {
     return (x >= 0 && x < width && y >= 0 && y < height);
 }
+int Board ::  getHeight() const { 
+    return height; 
+}
 
+int Board :: getWidth() const { 
+    return width; 
+}
 bool Board::isOccupied(int x, int y) const
 {
     if (!isInside(x, y))

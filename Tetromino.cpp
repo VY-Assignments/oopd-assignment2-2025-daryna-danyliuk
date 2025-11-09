@@ -14,9 +14,23 @@ void Tetromino::move(int dx, int dy) {
 	globalY += dy;
 }
 void Tetromino::rotateClockwise() {
-
+	for (int i = 0; i < BLOCKS_NUM; ++i) {
+		Block& block = localBlocks[i];
+		float rotatedX = localPivot.first + (block.getLocalY() - localPivot.second);
+		float rotatedY = localPivot.second - (block.getLocalX() - localPivot.first);
+		block.setLocalX(rotatedX);
+		block.setLocalY(rotatedY);
+	}
 }
 void Tetromino::rotateCounterClockwise() {
+	for (int i = 0; i < BLOCKS_NUM; ++i) {
+		Block& block = localBlocks[i];
+		float rotatedX = localPivot.first - (block.getLocalY() - localPivot.second);
+		float rotatedY = localPivot.second + (block.getLocalX() - localPivot.first);
+		block.setLocalX(rotatedX);
+		block.setLocalY(rotatedY);
+	}
+	
 }
 std::array<std::pair<int, int>, BLOCKS_NUM> Tetromino::getGlobalCoords() const {
 	std::array<std::pair<int, int>, BLOCKS_NUM> coords;
@@ -24,7 +38,7 @@ std::array<std::pair<int, int>, BLOCKS_NUM> Tetromino::getGlobalCoords() const {
 		const Block& block = localBlocks[i];
 		int globalBlockX = globalX + (block.getLocalX() - localPivot.first);
 		int globalBlockY = globalY + (block.getLocalY() - localPivot.second);
-		coords[i] = { globalBlockX, globalBlockY };
+		coords[i] = {globalBlockX, globalBlockY};
 	}
 	return coords;
 }

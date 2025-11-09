@@ -3,7 +3,7 @@
 Block::Block() : localX(0), localY(0), colour(Colour::None)
 {
 }
-Block::Block(int x, int y, Colour colour)
+Block::Block(float x, float y, Colour colour)
     : localX(x), localY(y), colour(colour) {
 
 }

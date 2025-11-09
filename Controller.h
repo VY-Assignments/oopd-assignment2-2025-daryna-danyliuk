@@ -7,4 +7,3 @@ class Controller {
 public:
     void handleCommand(InputCommand command, GameEngine& engine);
 };
-

@@ -28,3 +28,35 @@ void GameEngine::update(float deltaTime) {
 	if (currentState)
 		currentState->update(*this, deltaTime);
 }
+void GameEngine::rotateTetrominoCW() {
+	Tetromino testTetromino = currentTetromino;
+	testTetromino.rotateClockwise();
+	auto coords = testTetromino.getGlobalCoords();
+	for (int i = 0; i < BLOCKS_NUM; ++i) {
+		int x = coords[i].first;
+		int y = coords[i].second;
+		if (!board.isInside(x, y) || board.isOccupied(x, y)) {
+			return;
+		}
+	}
+	currentTetromino.rotateClockwise();
+}
+void GameEngine::rotateTetrominoÑCW() {
+	Tetromino testTetromino = currentTetromino;
+	testTetromino.rotateCounterClockwise();
+	auto coords = testTetromino.getGlobalCoords();
+	for (int i = 0; i < BLOCKS_NUM; ++i) {
+		int x = coords[i].first;
+		int y = coords[i].second;
+		if (!board.isInside(x, y) || board.isOccupied(x, y)) {
+			return;
+		}
+	}
+	currentTetromino.rotateCounterClockwise();
+}
+void GameEngine::dropTetromino() {
+
+}
+void GameEngine::lockTetromino() {
+
+}

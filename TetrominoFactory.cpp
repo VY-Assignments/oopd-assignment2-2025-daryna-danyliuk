@@ -3,42 +3,83 @@
 Tetromino TetrominoFactory::create(TetrominoType type) {
     std::array<Block, 4> blocks;
     Colour colour;
-    std::pair<int, int> pivot = { 0, 0 };
-    int startX = 5;
-    int startY = 0;
+    std::pair<float, float> pivot = { 0, 0 };
+    int boardX = 5;
+    int boardY = 0;
 
     switch (type) {
     case TetrominoType::I:
         colour = Colour::Cyan;
-        blocks = { Block(-1,0,colour), Block(0,0,colour), Block(1,0,colour), Block(2,0,colour) };
+        pivot = {0.5f, 0.5f};
+        blocks = {
+            Block(-1.5f,0.0f,colour), 
+            Block(-0.5f,0.0f,colour), 
+            Block(0.5f,0.0f,colour), 
+            Block(1.5f,0.0f,colour) 
+        };
         break;
     case TetrominoType::O:
         colour = Colour::Yellow;
-        blocks = { Block(0,0,colour), Block(1,0,colour), Block(0,1,colour), Block(1,1,colour) };
+        pivot = {0.5f, 0.5f};
+        blocks = {
+            Block(0.0f,0.0f,colour), 
+            Block(1.0f,0.0f,colour), 
+            Block(0.0f,1.0f,colour), 
+            Block(1.0f,1.0f,colour) 
+        };
         break;
     case TetrominoType::T:
         colour = Colour::Purple;
-        blocks = { Block(-1,0,colour), Block(0,0,colour), Block(1,0,colour), Block(0,1,colour) };
+        pivot = {0.0f, 0.0f};
+        blocks = { 
+            Block(-1.0f,0.0f,colour), 
+            Block(0.0f,0.0f,colour), 
+            Block(1.0f,0.0f,colour), 
+            Block(0.0f,1.0f,colour) 
+        };       
         break;
     case TetrominoType::S:
         colour = Colour::Green;
-        blocks = { Block(0,0,colour), Block(1,0,colour), Block(-1,1,colour), Block(0,1,colour) };
+        pivot = {0.0f, 0.0f};
+        blocks = { 
+            Block(0.0f,0.0f,colour), 
+            Block(1.0f,0.0f,colour), 
+            Block(-1.0f,1.0f,colour), 
+            Block(0.0f,1.0f,colour) 
+        };
         break;
     case TetrominoType::Z:
         colour = Colour::Red;
-        blocks = { Block(-1,0,colour), Block(0,0,colour), Block(0,1,colour), Block(1,1,colour) };
+        pivot = {0.0f, 0.0f};
+        blocks = { 
+            Block(-1.0f,0.0f,colour), 
+            Block(0.0f,0.0f,colour), 
+            Block(0.0f,1.0f,colour), 
+            Block(1.0f,1.0f,colour) 
+        };
         break;
     case TetrominoType::L:
         colour = Colour::Orange;
-        blocks = { Block(-1,0,colour), Block(0,0,colour), Block(1,0,colour), Block(1,1,colour) };
+        pivot = {0.0f, 0.0f};
+        blocks = { 
+            Block(-1.0f,0.0f,colour), 
+            Block(0.0f,0.0f,colour), 
+            Block(1.0f,0.0f,colour), 
+            Block(1.0f,1.0f,colour) 
+        };
         break;
     case TetrominoType::J:
         colour = Colour::Blue;
-        blocks = { Block(-1,1,colour), Block(-1,0,colour), Block(0,0,colour), Block(1,0,colour) };
+        pivot = {0.0f, 0.0f};
+        blocks = { 
+            Block(-1.0f,1.0f,colour), 
+            Block(-1.0f,0.0f,colour), 
+            Block(0.0f,0.0f,colour), 
+            Block(1.0f,0.0f,colour) 
+        };
         break;
     }
-
-    return Tetromino(colour, blocks, pivot, startX, startY);
+    return Tetromino(colour, blocks, pivot, boardX, boardY);
 }
 
 Tetromino TetrominoFactory::createRandom() {

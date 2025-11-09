@@ -9,7 +9,11 @@ PlayingState::PlayingState()
 }
 
 void PlayingState::update(GameEngine& engine, float deltaTime) {
-  
+	fallTimer += deltaTime;
+	if (fallTimer >= fallInterval) {
+		engine.moveTetromino(0, +1);
+		fallTimer = 0;
+	}
 }
 
 void PlayingState::handleInput(GameEngine& engine) {

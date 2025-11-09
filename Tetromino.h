@@ -8,7 +8,7 @@ class Tetromino{
 private:
 	Colour colour;
 	std::array<Block, BLOCKS_NUM> localBlocks;
-	std::pair <int, int> localPivot;
+	std::pair <float, float> localPivot;
 	int globalX, globalY;
 
 public:

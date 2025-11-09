@@ -11,7 +11,7 @@ private:
 
 public:
 	Block();
-	Block(int x, int y, Colour colour);
+	Block(float x, float y, Colour colour);
 	int getLocalX() const;
 	void setLocalX(int x);
 	int getLocalY() const;
