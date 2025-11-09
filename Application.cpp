@@ -47,13 +47,12 @@ InputCommand Application::mapKeyToCommand(sf::Keyboard::Key key) {
         return InputCommand::RotateClockwise;
     case sf::Keyboard::Z:     
         return InputCommand::RotateCounterClockwise;
-    case sf::Keyboard::Space:     
+    case sf::Keyboard::Escape:     
         return InputCommand::Pause;
     default:                  
         return InputCommand::None;
     }
 }
-
 void Application::render() {
     renderer.render(engine);
 }

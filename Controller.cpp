@@ -6,30 +6,23 @@ void Controller::handleCommand(InputCommand command, GameEngine& engine) {
 
     switch (command) {
     case InputCommand::MoveLeft:
-        tetromino.move(-1, 0);
+        engine.moveTetromino(-1, 0);
         break;
 
     case InputCommand::MoveRight:
-        tetromino.move(1, 0);
+        engine.moveTetromino(1, 0);
         break;
 
     case InputCommand::MoveDown:
-        tetromino.move(0, 1);
+        engine.moveTetromino(0, 1);
         break;
 
     case InputCommand::RotateClockwise:
-        tetromino.rotateClockwise();
+        engine.rotateTetrominoCW();
         break;
 
     case InputCommand::RotateCounterClockwise:
-        tetromino.rotateCounterClockwise();
-        break;
-
-    case InputCommand::Pause:
-        engine.pause();
-        break;
-
-    default:
+        engine.rotateTetrominoCCW();
         break;
     }
 }

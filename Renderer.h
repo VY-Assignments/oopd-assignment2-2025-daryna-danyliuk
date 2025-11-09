@@ -1,7 +1,12 @@
 #pragma once
+#include "Board.h"
+#include "Tetromino.h"
 #include <SFML/Graphics.hpp>
 #include "PlayingState.h"
 #include "ColourType.h"
+#include "Board.h"
+#include "Tetromino.h"
+
 
 class GameEngine;
 
@@ -15,7 +20,6 @@ private:
     sf::Color convertColour(Colour c);
 
 public:
-    Renderer();
     explicit Renderer(sf::RenderWindow& w);
     void render(const GameEngine& engine);
 };

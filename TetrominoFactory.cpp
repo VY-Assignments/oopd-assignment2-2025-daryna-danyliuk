@@ -78,6 +78,9 @@ Tetromino TetrominoFactory::create(TetrominoType type) {
             Block(1.0f,0.0f,colour) 
         };
         break;
+    default:
+        colour = Colour::None;
+        break;
     }
     return Tetromino(colour, blocks, pivot, boardX, boardY);
 }

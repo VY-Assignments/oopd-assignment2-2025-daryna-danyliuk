@@ -17,7 +17,7 @@ public:
     void changeState(std::unique_ptr<GameState> newState);
     void moveTetromino(int dx, int dy);
     void rotateTetrominoCW();
-    void rotateTetromino—CW();
+    void rotateTetrominoCCW();
     void dropTetromino();
     void lockTetromino();
     void clearFullLines();

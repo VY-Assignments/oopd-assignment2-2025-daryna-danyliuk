@@ -3,7 +3,7 @@
 #include "Board.h"
 #include "Tetromino.h"
 
-PlayingState::PlayingState()
+PlayingState::PlayingState(GameEngine& engine)
     : fallTimer(0.0f), fallInterval(0.5f)
 {
 }
@@ -20,6 +20,7 @@ void PlayingState::handleInput(GameEngine& engine) {
 }
 
 void PlayingState::onEnter() {
+	fallTimer = 0.0f;
 }
 
 void PlayingState::onExit() {

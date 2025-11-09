@@ -89,20 +89,26 @@ void GameEngine::moveTetromino(int dx, int dy) {
 }
 void GameEngine::dropTetromino() {
 	Tetromino testTetromino = currentTetromino;
-	auto coords = testTetromino.getGlobalCoords();
 	bool isDropping = true;
 	while (isDropping) {
+		testTetromino.move(0, +1);
+		auto coords = testTetromino.getGlobalCoords();
+		bool isColision = false;
 		for (int i = 0; i < BLOCKS_NUM; ++i) {
 			int x = coords[i].first;
 			int y = coords[i].second;
-			testTetromino.move(0, +1);
 			if (!board.isInside(x, y) || board.isOccupied(x, y)) {
-				currentTetromino = testTetromino;
-				lockTetromino();
+				isColision = true;
 				break;
 			}
-			else {
-				continue;
-			}
+		}
+
+		if (isColision) {
+			isDropping = false;
+		}
+		else {
+			currentTetromino.move(0, +1);
+		}
 	}
+	lockTetromino();
 }

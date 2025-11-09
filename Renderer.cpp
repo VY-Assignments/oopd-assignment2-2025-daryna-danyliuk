@@ -1,4 +1,6 @@
 #include "Renderer.h"
+#include "GameEngine.h"
+
 
 Renderer::Renderer(sf::RenderWindow& w)
     : window(w)

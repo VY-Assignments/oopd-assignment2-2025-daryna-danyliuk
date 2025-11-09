@@ -1,5 +1,9 @@
 #include "Tetromino.h"
 
+Tetromino::Tetromino()
+	: colour(Colour::None), localBlocks(), localPivot({ 0, 0 }), globalX(0), globalY(0)
+{
+}
 
 Tetromino::Tetromino(Colour colour, std::array<Block, BLOCKS_NUM> blocks, std::pair<int, int> pivot, int x, int y)
 	: colour(colour), localBlocks(blocks), localPivot(pivot), globalX(x), globalY(y)

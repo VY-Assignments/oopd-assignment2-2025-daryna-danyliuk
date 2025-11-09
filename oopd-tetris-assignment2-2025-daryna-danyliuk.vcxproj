@@ -134,7 +134,9 @@
     <ClCompile Include="GameOverState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PausedState.cpp" />
-    <ClCompile Include="PlayingState.cpp" />
+    <ClCompile Include="PlayingState.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="ScoreManager.cpp" />
     <ClCompile Include="Tetromino.cpp" />

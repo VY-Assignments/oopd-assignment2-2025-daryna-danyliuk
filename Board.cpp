@@ -44,7 +44,6 @@ void Board::placeTetromino(const Tetromino& t)
         }
     }
 }
-
 void Board::clearFullLines()
 {
     for (int y = height - 1; y >= 0; --y)

@@ -8,7 +8,7 @@ private:
 	float fallTimer;
 	float fallInterval;
 public:
-	PlayingState();
+	explicit PlayingState(GameEngine& engine);
 	void update(GameEngine& engine, float deltaTime) override;
 	void handleInput(GameEngine&) override;
 	void onEnter() override;
