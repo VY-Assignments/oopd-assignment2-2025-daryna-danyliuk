@@ -1,4 +1,5 @@
 #include "GameEngine.h"
+#include "GameState.h"
 #include "PlayingState.h"
 
 GameEngine::GameEngine()
@@ -41,7 +42,7 @@ void GameEngine::rotateTetrominoCW() {
 	}
 	currentTetromino.rotateClockwise();
 }
-void GameEngine::rotateTetromino—CW() {
+void GameEngine::rotateTetrominoCCW() {
 	Tetromino testTetromino = currentTetromino;
 	testTetromino.rotateCounterClockwise();
 	auto coords = testTetromino.getGlobalCoords();
@@ -54,9 +55,54 @@ void GameEngine::rotateTetromino—CW() {
 	}
 	currentTetromino.rotateCounterClockwise();
 }
-void GameEngine::dropTetromino() {
+void GameEngine::lockTetromino() {
+	board.placeTetromino(currentTetromino);
+	board.clearFullLines();
+	currentTetromino = factory.createRandom();
+	auto coords = currentTetromino.getGlobalCoords();
+	for (int i = 0; i < BLOCKS_NUM; ++i) {
+		int x = coords[i].first;
+		int y = coords[i].second;
+		if (board.isOccupied(x, y)) {
+			isRunning = false;
+			//changeState(std::make_unique<GameOverState>(*this));
+			return;
+		}
+	}
 
 }
-void GameEngine::lockTetromino() {
-
+void GameEngine::moveTetromino(int dx, int dy) {
+	Tetromino testTetromino = currentTetromino;
+	testTetromino.move(dx, dy);
+	auto coords = testTetromino.getGlobalCoords();
+	for (int i = 0; i < BLOCKS_NUM; ++i) {
+		int x = coords[i].first;
+		int y = coords[i].second;
+		if (!board.isInside(x, y) || board.isOccupied(x, y)) {
+			if (dy > 0) {
+				lockTetromino();
+			}
+			return;
+		}
+	}
+	currentTetromino.move(dx, dy);
+}
+void GameEngine::dropTetromino() {
+	Tetromino testTetromino = currentTetromino;
+	auto coords = testTetromino.getGlobalCoords();
+	bool isDropping = true;
+	while (isDropping) {
+		for (int i = 0; i < BLOCKS_NUM; ++i) {
+			int x = coords[i].first;
+			int y = coords[i].second;
+			testTetromino.move(0, +1);
+			if (!board.isInside(x, y) || board.isOccupied(x, y)) {
+				currentTetromino = testTetromino;
+				lockTetromino();
+				break;
+			}
+			else {
+				continue;
+			}
+	}
 }
