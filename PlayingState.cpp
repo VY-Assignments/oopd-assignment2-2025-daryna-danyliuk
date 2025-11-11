@@ -15,13 +15,12 @@ void PlayingState::update(GameEngine& engine, float deltaTime) {
 		fallTimer = 0;
 	}
 }
-
-void PlayingState::handleInput(GameEngine& engine) {
-}
-
 void PlayingState::onEnter() {
 	fallTimer = 0.0f;
-}
 
-void PlayingState::onExit() {
+}
+void  PlayingState::onExit() {
+
+}
+void PlayingState::handleInput(GameEngine&) {
 }

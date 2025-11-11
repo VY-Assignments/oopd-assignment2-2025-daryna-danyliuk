@@ -5,7 +5,7 @@ Tetromino::Tetromino()
 {
 }
 
-Tetromino::Tetromino(Colour colour, std::array<Block, BLOCKS_NUM> blocks, std::pair<int, int> pivot, int x, int y)
+Tetromino::Tetromino(Colour colour, std::array<Block, BLOCKS_NUM> blocks, std::pair<float, float > pivot, int x, int y)
 	: colour(colour), localBlocks(blocks), localPivot(pivot), globalX(x), globalY(y)
 {
 }
@@ -40,8 +40,8 @@ std::array<std::pair<int, int>, BLOCKS_NUM> Tetromino::getGlobalCoords() const {
 	std::array<std::pair<int, int>, BLOCKS_NUM> coords;
 	for (int i = 0; i < BLOCKS_NUM; ++i) {
 		const Block& block = localBlocks[i];
-		int globalBlockX = globalX + (block.getLocalX() - localPivot.first);
-		int globalBlockY = globalY + (block.getLocalY() - localPivot.second);
+		float globalBlockX = globalX + (block.getLocalX() - localPivot.first);
+		float globalBlockY = globalY + (block.getLocalY() - localPivot.second);
 		coords[i] = {globalBlockX, globalBlockY};
 	}
 	return coords;

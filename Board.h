@@ -19,6 +19,7 @@ public:
 	bool isOccupied(int x, int y) const;
 	void placeTetromino(const Tetromino&);
 	void clearFullLines();
+	void clear();
 	int getHeight() const;
 	int getWidth() const;
 };

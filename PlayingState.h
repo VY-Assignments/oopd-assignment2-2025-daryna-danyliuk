@@ -13,5 +13,4 @@ public:
 	void handleInput(GameEngine&) override;
 	void onEnter() override;
 	void onExit() override;
-
 };

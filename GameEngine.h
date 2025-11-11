@@ -11,7 +11,6 @@ class GameEngine {
 public:
     GameEngine();
     void start();
-    void pause();
     void resume();
     void update(float deltaTime);
     void changeState(std::unique_ptr<GameState> newState);

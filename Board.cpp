@@ -65,3 +65,7 @@ void Board::clearFullLines()
         }
     }
 }
+void Board::clear() {
+    for (auto& row : grid)
+        std::fill(row.begin(), row.end(), Colour::None);
+}

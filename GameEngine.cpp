@@ -1,6 +1,7 @@
 #include "GameEngine.h"
 #include "GameState.h"
 #include "PlayingState.h"
+#include "GameOverState.h"
 
 GameEngine::GameEngine()
 	: isRunning(false)
@@ -12,9 +13,6 @@ void GameEngine::start() {
 	isRunning = true;
 	currentTetromino = factory.createRandom();
 }
-void GameEngine::pause() {
-}
-
 void GameEngine::resume() {
 }
 void GameEngine::changeState(std::unique_ptr<GameState> newState) {
@@ -65,11 +63,10 @@ void GameEngine::lockTetromino() {
 		int y = coords[i].second;
 		if (board.isOccupied(x, y)) {
 			isRunning = false;
-			//changeState(std::make_unique<GameOverState>(*this));
+			changeState(std::make_unique<GameOverState>(*this));
 			return;
 		}
 	}
-
 }
 void GameEngine::moveTetromino(int dx, int dy) {
 	Tetromino testTetromino = currentTetromino;
@@ -102,7 +99,6 @@ void GameEngine::dropTetromino() {
 				break;
 			}
 		}
-
 		if (isColision) {
 			isDropping = false;
 		}

@@ -43,7 +43,6 @@ void Renderer::drawTetromino(const Tetromino& t)
     {       
         int x = p.first;
         int y = p.second;
-
         sf::RectangleShape rect(sf::Vector2f(cellSize - 1, cellSize - 1));
         rect.setPosition(x * cellSize, y * cellSize);
         rect.setFillColor(convertColour(c));

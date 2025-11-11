@@ -25,4 +25,3 @@ public:
 	void render();
 	void close();
 };
-

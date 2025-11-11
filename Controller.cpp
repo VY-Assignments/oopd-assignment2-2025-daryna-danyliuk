@@ -24,5 +24,10 @@ void Controller::handleCommand(InputCommand command, GameEngine& engine) {
     case InputCommand::RotateCounterClockwise:
         engine.rotateTetrominoCCW();
         break;
+    case InputCommand::Restart:
+        if (auto state = engine.getCurrentState())
+            state->handleInput(engine);
+        break;
+
     }
 }

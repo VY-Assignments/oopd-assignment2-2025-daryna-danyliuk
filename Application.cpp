@@ -1,4 +1,5 @@
 #include "Application.h"
+#include <iostream>
 
 Application::Application()
     : window(sf::VideoMode(800, 600), "Tetris Game"),
@@ -8,6 +9,7 @@ Application::Application()
     controller(),
     isRunning(true)
 {
+    std::srand(static_cast<unsigned>(std::time(nullptr)));
     engine.start();
 }
 void Application::run() {
@@ -27,8 +29,10 @@ void Application::processEvents() {
             window.close();
         }
         else if (event.type == sf::Event::KeyPressed) {
+            std::cout << "Detected key press" << std::endl;
             InputCommand command = mapKeyToCommand(event.key.code);
             if (command != InputCommand::None) {
+                std::cout << "Command detected: " << static_cast<int>(command) << std::endl;
                 controller.handleCommand(command, engine);
             }
         }
@@ -47,8 +51,8 @@ InputCommand Application::mapKeyToCommand(sf::Keyboard::Key key) {
         return InputCommand::RotateClockwise;
     case sf::Keyboard::Z:     
         return InputCommand::RotateCounterClockwise;
-    case sf::Keyboard::Escape:     
-        return InputCommand::Pause;
+    case sf::Keyboard::Space:   
+        return InputCommand::Restart;
     default:                  
         return InputCommand::None;
     }

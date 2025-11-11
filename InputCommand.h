@@ -6,6 +6,6 @@ enum class InputCommand {
     MoveDown,
     RotateClockwise,
     RotateCounterClockwise,
-    Pause,
+    Restart,
     None
 };
