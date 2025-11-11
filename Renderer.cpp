@@ -100,7 +100,7 @@ void Renderer::drawNextTetromino(const GameEngine& engine)
     auto coords = t.getGlobalCoords();
     Colour c = t.getColour();
 
-    float offsetX = engine.getBoard().getWidth() * cellSize + 60;
+    float offsetX = engine.getBoard().getWidth() * cellSize + 90;
     float offsetY = 270;
 
     for (const auto& p : coords)
