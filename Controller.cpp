@@ -25,7 +25,7 @@ void Controller::handleCommand(InputCommand command, GameEngine& engine) {
         engine.rotateTetrominoCCW();
         break;
     case InputCommand::Restart:
-        if (auto state = engine.getCurrentState())
+        if (GameState* state = engine.getCurrentState())
             state->handleInput(engine);
         break;
 

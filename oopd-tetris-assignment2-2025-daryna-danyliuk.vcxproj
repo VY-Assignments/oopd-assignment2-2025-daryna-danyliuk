@@ -137,7 +137,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Renderer.cpp" />
-    <ClCompile Include="ScoreManager.cpp" />
     <ClCompile Include="Tetromino.cpp" />
     <ClCompile Include="TetrominoFactory.cpp" />
   </ItemGroup>

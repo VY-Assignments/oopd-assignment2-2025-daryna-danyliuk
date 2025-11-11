@@ -10,8 +10,10 @@ GameEngine::GameEngine()
 void GameEngine::start() {
 	auto newState = std::make_unique<PlayingState>(*this);
 	changeState(std::move(newState));
+	scoreManager.reset();
 	isRunning = true;
 	currentTetromino = factory.createRandom();
+	nextTetromino = factory.createRandom();
 }
 void GameEngine::resume() {
 }
@@ -55,8 +57,11 @@ void GameEngine::rotateTetrominoCCW() {
 }
 void GameEngine::lockTetromino() {
 	board.placeTetromino(currentTetromino);
-	board.clearFullLines();
-	currentTetromino = factory.createRandom();
+	int cleared = board.clearFullLines();
+	if (cleared > 0)
+		scoreManager.addLines(cleared);
+	currentTetromino = nextTetromino;
+	nextTetromino = factory.createRandom();
 	auto coords = currentTetromino.getGlobalCoords();
 	for (int i = 0; i < BLOCKS_NUM; ++i) {
 		int x = coords[i].first;

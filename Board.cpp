@@ -44,8 +44,9 @@ void Board::placeTetromino(const Tetromino& t)
         }
     }
 }
-void Board::clearFullLines()
+int Board::clearFullLines()
 {
+    int cleared = 0;
     for (int y = height - 1; y >= 0; --y)
     {
         bool full = true;
@@ -62,8 +63,11 @@ void Board::clearFullLines()
             grid.erase(grid.begin() + y);
             grid.insert(grid.begin(), std::vector<Colour>(width, Colour::None));
             y++;
+            cleared++;
+
         }
     }
+    return cleared;
 }
 void Board::clear() {
     for (auto& row : grid)

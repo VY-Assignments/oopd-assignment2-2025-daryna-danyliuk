@@ -1,7 +1,6 @@
 #pragma once
 #include <memory>
 #include "ScoreManager.h"
-#include "SaveManager.h"
 #include "Board.h"
 #include "Tetromino.h"
 #include "TetrominoFactory.h"
@@ -40,12 +39,19 @@ public:
     TetrominoFactory& getFactory() {
         return factory; 
     }
+    const ScoreManager& getScoreManager() const {
+        return scoreManager;
+    }
+    const Tetromino& getNextTetromino() const {
+        return nextTetromino; 
+    }
+
 
 private:
     Board board;
     Tetromino currentTetromino;
+    Tetromino nextTetromino;
     ScoreManager scoreManager;
-    SaveManager saveManager;
     TetrominoFactory factory;
     std::unique_ptr<GameState> currentState;
     bool isRunning = false;
