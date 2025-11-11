@@ -19,4 +19,3 @@ public:
 	Colour getColour();
 
 };
-

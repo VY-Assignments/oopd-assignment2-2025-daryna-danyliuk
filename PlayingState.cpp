@@ -19,8 +19,3 @@ void PlayingState::onEnter() {
 	fallTimer = 0.0f;
 
 }
-void  PlayingState::onExit() {
-
-}
-void PlayingState::handleInput(GameEngine&) {
-}
